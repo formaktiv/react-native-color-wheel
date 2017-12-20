@@ -149,7 +149,7 @@ export class ColorWheel extends Component {
     const {deg, radius} = this.calcPolar(nativeEvent)
     const currentColor = colorsys.hsv2Hex({h: deg, s: 100 * radius, v: 100})
     this.setState({currentColor})
-    this.props.onColorChange({h: deg, s: 100 * radius, v: 100})
+    this.props.onColorChange(currentColor)
   }
 
   forceUpdate = color => {
@@ -199,7 +199,7 @@ export class ColorWheel extends Component {
       >
         <Image
           style={[styles.img, {height: radius * 2, width: radius * 2}]}
-          source={require('yeti/app/assets/img/color-wheel.png')}
+          source={require('./color-wheel.png')}
         />
         <Animated.View style={[this.state.pan.getLayout(), thumbStyle]} />
       </View>
